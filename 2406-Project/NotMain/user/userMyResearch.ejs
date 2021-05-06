@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang ="eng">
+    <head>
+        <meta charset ="utf-8">
+        <title>Expandable Sidebar Menu</title>
+        <link rel="stylesheet" href="userMyResearch.css">
+        <link rel ="stylesheet" href="../topNav.css">
+        <link rel="stylesheet" href="uiAddToArray.css">
+        <style>
+            h1 {
+                font-size: 5em;
+            }
+            h2{
+                font-size: 2.5em;
+            }
+            #stocks .stock-table{
+                flex-direction: column;
+                text-align: center;
+                margin: auto;
+                padding: 100px 0;
+            }
+            .stocks-table{
+                border-collapse: collapse; /*reduce space between cells*/
+                margin: 20 5;
+                font-size: 1.5em;
+                padding-left: auto;
+                margin-left:auto; 
+                margin-right:auto;
+                text-align: center;
+            }
+            
+            .tables{
+                padding-left: auto;
+            }
+            .stocks-table thead tr {
+                text-align: left;
+                background-color: lightskyblue;
+                color: whitesmoke;
+            }
+            .stocks-table th, .stocks-table td{
+                padding: 5% 2%;
+            }
+            .stocks-table tbody tr {
+                cursor: pointer;
+                border-bottom: 1px solid rgb(163, 163, 163);
+            }
+            .stocks-table tbody tr:hover{
+                box-shadow: 0px 0px 4px 0 lightskyblue;   /*box shadow when overing over*/ 
+            }
+        </style>
+    </head>
+    <body>
+        <!--Header Section: has the menu to navigate through the page-->
+        <section id="menu">
+            <div class="menu container">
+                <div class="nav-bar"> 
+                    <div class="company"> <!--Company class will help style text like a nice title-->
+                        <a href="#myResearch"><h1>Stock-Aholics</h1></a> <!-- The span colors one letter different--> 
+                    </div>
+                    <div class="nav-list">
+                        <div class="press"> <!--botton to press when on phone will open menu-->
+                            <div class="bar"> <!--line that makes button look better-->
+                            </div>
+                        </div>
+                        <ul>
+                            <!--all the places to navigate to-->
+                            <li><a href = "../userHome">My Profile</a></li> 
+                            <li><a href = "./userMyStocks">My Stocks</a></li>
+                            <!--<li><a href = "..#aboutUs">About Us</a></li>
+                            <li><a href = "..#contact">Contact</a></li>-->
+                            <li><form action="/logout?_logout=DELETE" method ="POST">
+                                <button type="logout"><a>sign Out</a></button>
+                            </form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="profileMenu">
+            <div class="options">Hi <%= name %></div>
+            <ul>
+                <li><a href="../userHome">My Profile</a></li>
+                <li><a href="./userMyStocks">My Portfolio</a></li>
+                <li><a href="./userMyOrder">My Orders</a></li>
+                <li><a href="./userMyWatchlist">My Watchlist</a></li>
+                <li><a href="./userMyResearch">Stock Research</li>
+                <li><a href="./userMyTrades">Trade</a></li>
+                <li><a href="./userMyHistory">View Account History</a></li>
+                <li><a href="./userMySubs">View Event Subscription</a></li>
+                <li><a href="./stockHistory">Stock history</a></li>
+                <li><a href="./userMyMoney">Edit Money in Account</a></li>
+            </ul>
+        </nav>
+        
+
+        <!--My Profile Section-->
+        <Section id = "stocks">
+            <div class="stock-table container">
+                <div class="header">
+                    <h1>Stocks</h1>
+                    <h2>These are the stocks we have available</h2>
+                </div>
+                <div class="tables">
+                <table class="stocks-table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Company</th>
+                            <th>Current Price</th>
+                            <th>Low Price</th>
+                            <th>High Price</th>
+                            <th>Daily Trades</th>
+                        </tr>
+                    </thead>
+                    <% for(var i=0; i<stocks.length; i++) {%>
+                        <tbody id = "parent">
+                            <tr id="0" data-href="./userMyTrades" >
+                                <th><%-stocks[i].symbol%></th>
+                                <th><%-stocks[i].name%></th>
+                                <th><%-stocks[i].curPrice%></th>
+                                <th><%-stocks[i].low%></th>
+                                <th><%-stocks[i].high%></th>
+                                <th><%-stocks[i].dailyTrades%></th>
+                            </tr>
+                        </tbody>
+                    <%}%>
+                </table>
+                </div>
+                
+                
+            </div>
+        </Section>
+        <script>
+            const press = document.querySelector('.menu .nav-bar .nav-list .press'); //tells js where to get 
+            const mobileMenu = document.querySelector('.menu .nav-bar .nav-list ul');
+            const menuContent = document.querySelectorAll('.menu .nav-bar .nav-list ul li a'); //here multiple things so use All
+            
+            press.addEventListener('click', () => {//when item is clicked
+                mobileMenu.classList.toggle('active');//adds class active
+            });
+            
+            menuContent.forEach((item)=> {//because multiple line use forEach
+                item.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                });
+            });
+        </script>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const rows = document.querySelectorAll("tr[data-href]");
+                
+                rows.forEach(row=> {
+                    row.addEventListener("click", () => {
+                        window.location.href = row.dataset.href;
+                    });
+                });
+            });
+        </script>
+        <script type="text/javascript" src="../../../client.js"></script>
+    </body>
+</html>
+

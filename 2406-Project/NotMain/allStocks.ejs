@@ -1,0 +1,123 @@
+<!--By: Nikhail Kazak and Tal Aizikov-->
+<!--Start Date: 9/29/2020-->
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>The Stocks</title>
+        <link rel ="stylesheet" href="loginStyle.css">  <!--Connects login html code to CSS stylesheet-->
+        <style>
+            h1 {
+                font-size: 5em;
+            }
+            h2{
+                font-size: 2.5em;
+            }
+            #stocks .stock-table{
+                flex-direction: column;
+                text-align: center;
+                margin: auto;
+                padding: 100px 0;
+            }
+            .stocks-table{
+                min-width: 500px;
+                border-collapse: collapse; /*reduce space between cells*/
+                margin: 20 5;
+                font-size: 1.5em;
+            }
+            .stocks-table thead tr {
+                text-align: left;
+                background-color: lightskyblue;
+                color: whitesmoke;
+            }
+            .stocks-table th, .stocks-table td{
+                padding: 20px 15px;
+            }
+            .stocks-table tbody tr {
+                cursor: pointer;
+                border-bottom: 1px solid rgb(163, 163, 163);
+            }
+            .stocks-table tbody tr:hover{
+                box-shadow: 0px 0px 4px 0 lightskyblue;   /*box shadow when overing over*/ 
+            }
+        </style>
+    </head>
+    <body>
+        <!--Header Section: has the menu to navigate through the page-->
+        <section id="menu">
+            <div class="menu container">
+                <div class="nav-bar"> 
+                    <div class="company"> <!--Company class will help style text like a nice title-->
+                        <a href="..#intro"><h1>Stock-Aholics</h1></a> <!-- The span colors one letter different--> 
+                    </div>
+                    <div class="nav-list">
+                        <div class="press"> <!--botton to press when on phone will open menu-->
+                            <div class="bar"> <!--line that makes button look better-->
+                            </div>
+                        </div>
+                        <ul>
+                            <!--all the places to navigate to-->
+                            <li><a href = "../#intro">Home</a></li> 
+                            <li><a href = "./allStocks">Stocks</a></li>
+                            <li><a href = "../#aboutus">About Us</a></li>
+                            <li><a href = "../#footer">Contact</a></li>
+                            <li><a href = "./Login">Sign-In</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <Section id = "stocks">
+            <div class="stock-table container">
+                <div class="header">
+                    <h1>Stocks</h1>
+                    <h2>Click on The Stock You Are Intrested in Buying</h2>
+                </div>
+                <table class="stocks-table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Company</th>
+                            <th>Current Price</th>
+                            <th>Low Price</th>
+                            <th>High Price</th>
+                            <th>Daily Trades</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<stocks.length; i++) {%>
+                            <tbody id = "parent">
+                                <tr id="0" data-href="./userMyTrades" >
+                                    <th><%-stocks[i].symbol%></th>
+                                    <th><%-stocks[i].name%></th>
+                                    <th><%-stocks[i].curPrice%></th>
+                                    <th><%-stocks[i].low%></th>
+                                    <th><%-stocks[i].high%></th>
+                                    <th><%-stocks[i].dailyTrades%></th>
+                                </tr>
+                            </tbody>
+                        <%}%>
+                    </tbody>
+                </table>
+                
+                
+            </div>
+        </Section>
+
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const rows = document.querySelectorAll("tr[data-href]");
+                
+                rows.forEach(row=> {
+                    row.addEventListener("click", () => {
+                        window.location.href = row.dataset.href;
+                    });
+                });
+            });
+        </script>
+        <script src="../menu.js"></script>
+        
+        <script src="button.js"></script>
+    </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang ="eng">
+    <head>
+        <meta charset ="utf-8">
+        <title>Stock Search</title>
+        <link rel="stylesheet" href="userMyWatchlist.css">
+        <link rel ="stylesheet" href="../topNav.css">
+        
+        <style>
+            h1 {
+                font-size: 5em;
+            }
+            h2{
+                font-size: 2.5em;
+            }
+            #stocks .stock-table{
+                flex-direction: column;
+                text-align: center;
+                margin: auto;
+                padding: 100px 0;
+            }
+            .stocks-table{
+                border-collapse: collapse; /*reduce space between cells*/
+                margin: 20 5;
+                font-size: 1.5em;
+            }
+            .tables{
+                padding-left: 320px;
+            }
+            .stocks-table thead tr {
+                text-align: left;
+                background-color: lightskyblue;
+                color: whitesmoke;
+            }
+            .stocks-table th, .stocks-table td{
+                padding: 20px 15px;
+            }
+            .stocks-table tbody tr {
+                cursor: pointer;
+                border-bottom: 1px solid rgb(163, 163, 163);
+            }
+            .stocks-table tbody tr:hover{
+                box-shadow: 0px 0px 4px 0 lightskyblue;   /*box shadow when overing over*/ 
+            }
+        </style>
+    </head>
+    <body>
+        <!--Header Section: has the menu to navigate through the page-->
+        <section id="menu">
+            <div class="menu container">
+                <div class="nav-bar"> 
+                    <div class="company"> <!--Company class will help style text like a nice title-->
+                        <a href="#myWatchlist"><h1>Stock-Aholics</h1></a> <!-- The span colors one letter different--> 
+                    </div>
+                    <div class="nav-list">
+                        <div class="press"> <!--botton to press when on phone will open menu-->
+                            <div class="bar"> <!--line that makes button look better-->
+                            </div>
+                        </div>
+                        <ul>
+                            <!--all the places to navigate to-->
+                            <li><a href = "../userHome">My Profile</a></li> 
+                            <li><a href = "./userMyStocks">My Stocks</a></li>
+                            <!--<li><a href = "..#aboutUs">About Us</a></li>
+                            <li><a href = "..#contact">Contact</a></li>-->
+                            <li><form action="/logout?_logout=DELETE" method ="POST">
+                                <button type="logout"><a>sign Out</a></button>
+                            </form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="profileMenu">
+            <div class="options">Hi <%= name %></div>
+            <ul>
+                <li><a href="../userHome">My Profile</a></li>
+                <li><a href="./userMyStocks">My Portfolio</a></li>
+                <li><a href="./userMyOrder">My Orders</a></li>
+                <li><a href="./userMyWatchlist">My Watchlist</a></li>
+                <li><a href="./userStockResearch">Stock Research</li>
+                <li><a href="./userMyHistory">View Account History</a></li>
+                <li><a href="./stockHistory">Stock history</a></li>
+                <li><a href="./userMySubs">View Event Subscription</a></li>
+            </ul>
+        </nav>
+        <Section id = "stocks">
+            <div class="stock-table container">
+                <div class="header">
+                    <h1>Stocks</h1>
+                    <h2>Click on The Stock You Are Intrested in Buying</h2>
+                </div>
+                <div class="tables">
+                <table class="stocks-table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Company</th>
+                            <th>Current Price</th>
+                            <th>Low Price</th>
+                            <th>High Price</th>
+                            <th>Daily Trades</th>
+                        </tr>
+                    </thead>
+                    <tbody id = "parent">
+                        <tr id="0" data-href="./stock" >
+                            <th><%-stocks[0].symbol%></th>
+                            <th><%-stocks[0].name%></th>
+                            <th><%-stocks[0].curPrice%></th>
+                            <th><%-stocks[0].low%></th>
+                            <th><%-stocks[0].high%></th>
+                            <th><%-stocks[0].dailyTrades%></th>
+                        </tr>
+                        <tr id="1" data-href="./stock" >
+                            <th><%-stocks[1].symbol%></th>
+                            <th><%-stocks[1].name%></th>
+                            <th><%-stocks[1].curPrice%></th>
+                            <th><%-stocks[1].low%></th>
+                            <th><%-stocks[1].high%></th>
+                            <th><%-stocks[1].dailyTrades%></th>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                
+                
+            </div>
+        </Section>
+
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const rows = document.querySelectorAll("tr[data-href]");
+                
+                rows.forEach(row=> {
+                    row.addEventListener("click", () => {
+                        window.location.href = row.dataset.href;
+                    });
+                });
+            });
+        </script>
+        <script src="../menu.js"></script>
+        <script src = "client.js"></script>
+        <script src="button.js"></script>
+        
+
+        
+    </body>
+</html>
+

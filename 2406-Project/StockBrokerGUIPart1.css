@@ -1,0 +1,410 @@
+/*By: Nikhail Kazak and Tal Aizikov*/
+/*Note to self: CSS uses US spelling with keywords like color and center*/
+/*Stylizes the main page*/
+
+/*Importing fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+*{
+    margin: 0;/*Sets the thickness of the margin*/
+    box-sizing: border-box;/*specifies to account for any border*/
+}
+html{
+    scroll-behavior: smooth;/*scrolls smoothly*/
+    font-size: 11px;/*sets font size*/
+    font-family: 'Ubuntu', sans-serif;/*changes to cool font*/
+}
+a{
+    text-decoration: none;/*make sure 0 doesnt have underlines and such*/
+}
+
+img {
+    object-fit: cover;/*makes image strech to cover the space*/
+    height: 100%;/*sizing 100% of height*/
+    width: 100%;/*sizing*/
+}
+
+.container{
+    min-height: 540px;/*sets the minimum height for each section*/
+    width:100%; /*makes sure width feels device used*/
+    display: flex;/*items feel available space or shrink if neccesary*/
+    align-items: center;/*lines items in center*/
+}
+/*menu section */
+#menu {
+    position: fixed;/*menu stays on top*/
+    z-index: 3;/*makes sure it overlays on top of everything else*/
+    width:100%; /*fill page width*/
+    height: auto; /*automaticaly desides on height based on elemnts in #menu*/
+}
+#menu .menu {
+    min-height: 8%; /*minimum height is 8% of page*/
+    background-color: rgba(32, 32, 32, 0.9); /*color the background of the menu bar (make a little transparent)*/
+}
+#menu .nav-bar{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: space-between; /*makes the same space inbetween items*/
+}
+/*all of whats below is only for phone and tablet/ipad*/
+#menu .nav-list ul{
+    position: absolute; /*positions relative to items around or page scroll*/
+    background-color: rgba(32, 32, 32);/*changes background color*/
+    width:100%;
+    height:100vh;/*makes height of whole page*/
+    left:100%; /* removes menu from screen later will change to 0% to show menu */
+    display:flex;
+    flex-direction: column;/*instead of rows will be cols*/
+    align-items: center;/*puts it in center*/
+    z-index: 1;/*makes sure on top*/
+    transition: .7s ease left;/*makes animation more smooth*/
+    list-style-type: none; /*removes bullet point*/
+}
+#menu .nav-list ul.active{
+    left:0; /*puts menu back on screen for phone*/
+}
+#menu .nav-list ul a{
+    font-size: 2.4rem;
+    text-decoration: none;
+    color: whitesmoke;
+    text-transform: uppercase;
+    padding: 22px;
+    display: block;
+}
+/*adds circle*/
+#menu .press {
+    height: 50px;/*adjusts height and width of button to open menu*/
+    width: 50px;
+    border: 2px solid whitesmoke; /*makes the button*/
+    border-radius: 100%; /*rounds the button to make it look better */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* makes it clickable */
+    transform: scale(0.7);/*makes button smaller while keeping height and width same (to have height of bar larger then button, looks better)*/
+    margin-right: 15px; /*moves it to the left a little*/
+}
+/*adds lines in circle*/
+#menu .press .bar {
+    height: 3px; 
+    width: 25px;
+    position: relative;
+    background-color: whitesmoke;
+}
+/*specifies how to add more lines*/
+#menu .press .bar::after,
+#menu .press .bar::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+}
+/*adds one line before one line after*/
+#menu .press .bar::after {
+    top:8px;
+}
+#menu .press .bar::before {
+    bottom:8px;
+}
+#menu .nav-list ul li:hover a {
+    color: lightskyblue;
+}
+
+
+/* Intro section */
+#intro{
+    background-image: url(./NotMain/imges/Img1.jpg);/*selects background image*/
+    background-size: cover;
+    position: relative;
+}
+
+
+#intro .intro {
+    max-width: 1130px; /*if screen is big will keep it a little more in the middle */
+    margin: auto;/*adjusts margin*/
+    padding: 0 50px;
+}
+
+#intro h1{
+    font-size: 5rem;/*changes font size*/
+    color:whitesmoke;
+    text-shadow: -1px -1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;/*adds outline to text(makes easier to see)*/
+}
+#intro h2{
+    font-size: 3.5rem;
+    color:whitesmoke;
+    text-shadow: -1px -1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;/*adds outline to text*/
+}
+
+#intro .cta {
+    font-weight: bolder; /*bolds text*/
+    display: inline-block; /*displays element next to one another (inline)*/
+    padding: 10px 30px; /*adds padding*/
+    color: whitesmoke; 
+    background-color: transparent; /*makes background transparent*/
+    border:2px solid lightskyblue; /*outlines with a border*/
+    font-size: 2rem;
+    text-transform: uppercase; /*puts text into uppercase*/
+    letter-spacing: 0.2rem;/*adds spaces between letters*/
+    margin-top: 35px; /*adds a 35 px margin only at the top*/
+    transition: 0.3s ease background-color; /*smoother transansition when overing over*/ 
+    text-shadow: -1px -1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;/*adds outline to text*/
+}
+
+#intro .cta:hover{
+    background-color: lightseagreen; /*when hovering change background color*/
+}
+
+.section-title{
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;/*adds magin only at bottom*/
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+.section-title span{
+    color: lightskyblue;
+}
+.company h1{
+    margin:12px;
+    padding-left: 10px;
+    font-size: 3rem;
+    color: white;
+}
+/*about us section*/
+#aboutUs .aboutUs{
+    flex-direction: column;
+    text-align: center;
+    max-width: 1400px;
+    margin: auto;
+    padding: 100px 0;
+}
+
+
+#aboutUs .aboutUs-top {
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem; /*changes space above and below elements*/
+    font-weight: 300;
+    max-width: 500px; /*changes max width*/
+    margin: auto;
+}
+#aboutUs .aboutUs-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 47px;
+}
+#aboutUs .aboutUs-section {
+    display: flex; /*specifies how it will be displayed to help push content */
+    align-items: flex-start; /*pushes content to the right */
+    justify-content: center; /*lines it in center*/
+    flex-direction: column; /*make col instead of row*/
+    padding: 30px;
+    border-radius: 10px; /*will round corners (desides how much to round*/
+    background-image: url(./NotMain/imges/maxresdefault2.jpg);
+    background-size: cover; /*stretches image */
+    margin: 10px 5%; /*puts space around text box */
+    position: center;
+    height: 250px;
+    max-height: 250px;
+}
+#aboutUs .aboutUs-bottom .icon {
+    height: 65px;
+    width: 65px;
+    margin-bottom: 20px;
+}
+
+#aboutUs .aboutUs-section h2{
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+#aboutUs .aboutUs-section p{
+    color: white;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+}
+
+/* Contacts section */
+#contact {
+    padding-top: 80px;
+}
+#contact .contact {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: auto;
+}
+#contact .contact-sections{
+    width: 500px;
+}
+#contact .contact-section{
+    width:80%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    padding:30px;
+    margin: 30px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 20px 0 rgb(136, 136, 136);
+    transition: 0.8s ease box-shadow;
+}
+#contact .contact-section:hover{
+    box-shadow: 0px 0px 40px 0 lightskyblue;   /*box shadow when overing over*/ 
+}
+
+#contact .icon {
+    width: 40px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+#contact .contacts h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+#contact .contacts h1 {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 500;
+}
+
+/* footer */
+#footer{
+    background-image: linear-gradient(40deg, rgb(56, 56, 56) 10%, #d4d4d4 80%); /*makes footer 2 colors changed by gradiant*/
+}
+#footer .footer {
+    min-height: 200px;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+#footer h2{
+    color:white;
+    font-weight: 500;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#footer .reachus {
+    display: flex;
+    margin-bottom: 30px;
+}
+#footer .reachusSection {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 0 5px;
+}
+/*when overing over make a nice*/
+#footer .reachusSection:hover{
+    border-radius: 7px; /*rounds corners*/
+    box-shadow: 0px 0px 10px 0 rgb(85, 85, 85);    
+}
+
+
+/*resize for different size devices*/
+/*tablet/ipad*/
+@media only screen and (min-width:768px){
+    .cta{
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+    h1.section-title {
+        font-size: 6rem;
+    }
+
+    /* intro */
+    #intro h1{
+        font-size: 7.5rem;
+    }
+
+    /* about us */
+    #aboutUs .aboutUs-bottom .aboutUs-section{
+        flex-basis: 45%;
+        margin: 2%;
+    }
+
+    /* Contact Us */
+    #contact .contact {
+        flex-direction: column;
+        padding: 100px,0;
+        align-items: center;
+        justify-content: center;
+        min-height: 20vh;
+    }
+    #contact .contact-sections {
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 60px;
+        margin:0;
+    }
+    #contact .contact-section {
+        width: 30%;
+        margin: 0;
+        padding: 10px;
+        flex-direction: row;
+    }
+    #contact .contact-section .icon{
+        height: 80px;
+        width: 80px;
+    }
+    #contact .contact-section .icon img {
+        object-fit: contain; /*adjusts object size to fit*/
+    }
+    #contact .contact-section .contacts {
+        width: 100%;
+        text-align: center;
+        padding-left: 20px;
+    }
+
+}
+
+/*below it changes to fit different sizes of screens*/
+/*desktop*/
+@media only screen and (min-width: 1200px) 
+{
+    #menu .press
+    {
+        display: none;
+    }
+    #menu .nav-list ul
+    {
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+    #menu .nav-list ul li
+    {
+        display: inline-block;
+    }
+    #menu .nav-list ul li a 
+    {
+        font-size: 1.7rem;
+    }
+
+    #aboutUs .aboutUs-bottom .aboutUs-section 
+    {
+        flex-basis: 20%;
+        margin: 1.5;
+        height: 350px;
+        max-height: 350px;
+    }
+
+}

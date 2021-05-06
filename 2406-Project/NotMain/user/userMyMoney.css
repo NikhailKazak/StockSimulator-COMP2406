@@ -1,0 +1,233 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Specifically for the sign out button*/
+#menu .nav-list button 
+{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+/*--------------------------------------*/
+
+
+/*For the sidebar*/
+.profileMenu
+{
+    position: fixed;
+    width: 18%;
+    height: 54%;
+    top:65px;
+    left: 0;
+    
+}
+
+.profileMenu .options
+{
+    color: black;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background:  linear-gradient(to right, rgb(0,105,148), rgb(127,255,212));
+    letter-spacing: 1.5px;
+}
+
+nav ul
+{
+    background:  linear-gradient(to right, rgb(0,105,148), rgb(127,255,212));
+    height: 160%;
+    width: 100%;
+    list-style: none;
+}
+
+nav ul li
+{
+    line-height: 60px;
+    border-top: 1px solid black;
+}
+
+nav ul li a
+{
+    position: relative;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 15px;
+    padding-left: 20px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
+nav ul li a:hover
+{
+    color: black;
+    background: linear-gradient(to right, rgb(255,0,255), rgb(139,0,139));
+    border-left-color:linear-gradient(to right, rgb(0,105,148), rgb(127,255,212));
+}
+
+
+
+/*myProfile section*/
+#myMoney .myMoney
+{
+    flex-direction: column;
+    text-align: center;
+    max-width: 1400px;
+    margin: auto;
+    padding: 100px 0;
+}
+
+#myMoney .myMoney-Info 
+{
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem; 
+    font-weight: 300;
+    max-width: 500px;
+    margin: auto;
+}
+
+#myMoney .myMoney-Info .icon 
+{
+    height: 65px;
+    width: 525px;
+    margin-bottom: 20px;
+}
+
+/*General UI stuff to add stocks to certain user arrays, i.e watchlist, orders, event-subs, etc*/
+#UI .ui
+{
+    height: 500px;
+    width: 350px;
+    background-image:  linear-gradient(to right, rgb(0,105,148), rgb(127,255,212));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+#UI .top
+{
+    height: 150px;
+    background-color: linear-gradient(to right,  rgb(127,255,212), rgb(0,105,148));
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+}
+
+#UI .top p
+{
+    text-align: center;
+    padding-top: 20px;
+    color: black;
+}
+
+#UI .left-icon
+{
+    float: left;
+    margin-left: 30px;
+}
+
+#UI .right-icon
+{
+    float: right;
+    margin-right: 30px;
+}
+
+#UI .middle
+{
+    height: 150px;
+    background-image: linear-gradient(to right, rgb(0,105,148), rgb(127,255,212));
+    margin: -70px 30px 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+#UI .middle h1
+{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 35px;
+    font-weight: normal;
+}
+
+#UI .middle h1 span
+{
+    font-size: 20px;
+    margin-left: 5px;
+    bottom: 18px;
+    position: relative;
+}
+
+#UI .stock-option-btn
+{
+    color: black;
+    margin: 5px 30px;
+    height: 30px;
+    width: 290px;
+    background-color: linear-gradient(to right,  rgb(5, 31, 22), rgb(0,105,148));
+    border: none;
+    cursor: pointer;
+}
+
+#UI .Stock-Details
+{
+    background: #fff;
+    color:#555;
+    margin: 10px 30px;
+    padding: 10px;
+}
+
+#UI .Stock-Details p
+{
+    font-size: 14px;
+}
+
+#UI .Stock-Details label
+{
+    font-size: 10px;
+    line-height: 20px;
+}
+
+#UI .Stock-Info
+{
+    margin-top: 10px;
+}
+
+#UI .Desired-Price
+{
+    margin-top: 10px;
+    display: inline-block;
+}
+
+#UI .Quantity-To-Purchase
+{
+    margin-top: 10px;
+    display: inline-block;
+    /*float: right;*/
+}
+
+#UI .Stock-Details input
+{
+    border: 1px solid #ccc;
+    height: 22px;
+    padding: 5px;
+    font-size: 10px;
+}
+
+#UI .Stock-Details input::placeholder
+{
+    color: #ccc;
+}

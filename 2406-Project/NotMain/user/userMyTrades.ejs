@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang ="eng">
+    <head>
+        <meta charset ="utf-8">
+        <title>Expandable Sidebar Menu</title>
+        <link rel="stylesheet" href="userMyTrades.css">
+        <link rel ="stylesheet" href="../topNav.css">
+        <link rel="stylesheet" href="uiAddToArray.css">
+        <style>
+            .watchlist{
+                left: -100px;
+                top: -400px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!--Header Section: has the menu to navigate through the page-->
+        <section id="menu">
+            <div class="menu container">
+                <div class="nav-bar"> 
+                    <div class="company"> <!--Company class will help style text like a nice title-->
+                        <a href="#myTrade"><h1>Stock-Aholics</h1></a> <!-- The span colors one letter different--> 
+                    </div>
+                    <div class="nav-list">
+                        <div class="press"> <!--botton to press when on phone will open menu-->
+                            <div class="bar"> <!--line that makes button look better-->
+                            </div>
+                        </div>
+                        <ul>
+                            <!--all the places to navigate to-->
+                            <li><a href = "../userHome">My Profile</a></li> 
+                            <li><a href = "./userMyStocks">My Stocks</a></li>
+                            <!--<li><a href = "..#aboutUs">About Us</a></li>
+                            <li><a href = "..#contact">Contact</a></li>-->
+                            <li><form action="/logout?_logout=DELETE" method ="POST">
+                                <button type="logout"><a>sign Out</a></button>
+                            </form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="profileMenu">
+            <div class="options">Hi <%= name %></div>
+            <ul>
+                <li><a href="../userHome">My Profile</a></li>
+                <li><a href="./userMyStocks">My Portfolio</a></li>
+                <li><a href="./userMyOrder">My Orders</a></li>
+                <li><a href="./userMyWatchlist">My Watchlist</a></li>
+                <li><a href="./userMyResearch">Stock Research</li>
+                <li><a href="./userMyTrades">Trade</a></li>
+                <li><a href="./userMyHistory">View Account History</a></li>
+                <li><a href="./userMySubs">View Event Subscription</a></li>
+                <li><a href="./stockHistory">Stock history</a></li>
+                <li><a href="./userMyMoney">Edit Money in Account</a></li>
+            </ul>
+        </nav>
+        
+
+        <!--My Profile Section-->
+        <section id="myTrade">
+            <div class="myTrade container">
+                <div class="myTrade-top">
+                    !--<h1 class="section-title">My <span> Trades</span></h1>
+                </div>
+                <div class="myTrade-Info">
+                    <!--splits area into section each having its own icon and area-->
+                    <div class="icon">
+                        
+                    </div>  
+                </div>
+            </div>
+        </section>
+
+        <section id = "UI">
+            <div class="ui">
+                <div class="top">
+                    <p><span class="left-icon">&#x2190;</span>Stocks<span class="right-icon">&#xb7;&#xb7;&#xb7;</span></p>
+                </div>
+
+                <div class="middle">
+                    <h1>Stock-Aholics Research<span> TM  </span></h1>
+                    <p>Buying? Watching? Event-Subbing? We got you covered</p>
+                </div>
+
+                <div class="bottom">
+                    <!--Remove buttons accordingly i.e in the stock buying section only enable the purchase stock button-->
+                    
+                    <!-- <form action="/NotMain/user/userMyTrades/watch" method="post"> -->
+                    <form action="/NotMain/user/userMyTrades/redirect" method="post">
+                    <button onclick="addedToWatchlist()" name="watch" id="watchlist" type="watch" class="stock-option-btn">Add To Watchlist</button>
+                    <button onclick="remToWatchlist()" name="remW" id="removeW" type="removeW" class="stock-option-btn">Remove From Watchlist</button>
+                    <button onclick="addedToSub()" name="sub" id="sub" type="s" class="stock-option-btn">Add To Event-Subscription</button>
+                    <button onclick="remToSub()" name="remES" id="removeS" type="removeS" class="stock-option-btn">Remove From Event Subscription</button>
+                    <button onclick="addedToOrders()" name="buy" id="buy" type="buy" class="stock-option-btn">Purchase Stock</button>
+                    <button onclick="addedToOrders()" name="sell" id="sellStock" type="sellStock" class="stock-option-btn">Sell</button>
+                    <button onclick="remToOrders()" name="remOrder" id="remOrder" type="remOrder" class="stock-option-btn">Remove Buying Order</button>
+                    <button onclick="remToOrders()" name="remSOrder" id="remSOrder" type="remSOrder" class="stock-option-btn">Remove Selling Order</button>
+                    
+                    <script>
+                        function addedToWatchlist()
+                        {
+                            alert("If the entered information was adequate or valid, then you will be redirected to your watchlist");
+                        }
+                        function remToWatchlist()
+                        {
+                            alert("If the entered information was adequate or valid, then you will be redirected to your watchlist");
+                        }
+                        function addedToSub()
+                        {
+                            alert("If the entered information was adequate or valid, then you will be redirected to your event subs");
+                        }
+                        function remToSub()
+                        {
+                            alert("If the entered information was adequate or valid, then you will be redirected to your event subs");
+                        }
+                        function addedToOrders()
+                        {
+                            alert("If the entered information was adequate or valid, then the stock should appear in My Portofolio (if market is open) or My Orders(if market is closed)");
+                        }
+                        function remToOrders()
+                        {
+                            alert("If the entered information was adequate or valid, then the order has been canceled");
+                        }
+                    </script>
+
+
+                    <div class="Stock-Details"> <!--For adding to watchlist/event subs/purchase-->
+                        <div class="Stock-Info"> <!--For adding to watchlist/event subs/purchase-->
+                            <p>Enter the Stock info</p>
+                            <label >Name/Symbol(Purchase/sell, Orders, EventSub, Watchlist)</label><br>
+                                <!-- <input type="text" name="id" > -->
+                                
+                                <input name="id" type="text" class="Name-Symbol-Field" placeholder="Stock/Stk" >
+                            
+                        </div>
+
+                        <div class="Desired-Price"> <!--Condition which has to be met if the above is for event subs-->
+                            <p>Please enter the desired price for this stock</p>
+                            <label>Price(EventSub)</label><br>
+                            <input name="price" type="number" class="Desired-Price-Field" placeholder="$$$$$$$$$$$$">
+                        </div>
+        
+                        <div class="Quantity-To-Purchase"> <!--For purchasing stocks-->
+                            <p>Please enter the quantity of stock you wish to purchase/sell/add/remove</p>
+                            <label>Quantity(Purchase/Sell, EventSub, Orders)</label><br>
+                            <input name="amount" type="number" class="Stocks-Buy-Field" placeholder="############">
+                        </div>
+                        <!-- </form> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            const press = document.querySelector('.menu .nav-bar .nav-list .press'); //tells js where to get 
+            const mobileMenu = document.querySelector('.menu .nav-bar .nav-list ul');
+            const menuContent = document.querySelectorAll('.menu .nav-bar .nav-list ul li a'); //here multiple things so use All
+            
+            press.addEventListener('click', () => {//when item is clicked
+                mobileMenu.classList.toggle('active');//adds class active
+            });
+            
+            menuContent.forEach((item)=> {//because multiple line use forEach
+                item.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                });
+            });
+        </script>
+        
+        <!-- <script type="text/javascript" src="businessLogic.js"></script> -->
+    </body>
+</html>
+

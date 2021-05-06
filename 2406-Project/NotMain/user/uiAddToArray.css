@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: sans-serif;
+}
+
+/*General UI stuff to add stocks to certain user arrays, i.e watchlist, orders, event-subs, etc*/
+#UI .ui
+{
+    height: 850px;
+    width: 350px;
+    background-image:  linear-gradient(to right, rgb(0,105,148), rgb(127,255,212));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+#UI .top
+{
+    height: 150px;
+    background-color: linear-gradient(to right,  rgb(127,255,212), rgb(0,105,148));
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+}
+
+#UI .top p
+{
+    text-align: center;
+    padding-top: 20px;
+    color: black;
+}
+
+#UI .left-icon
+{
+    float: left;
+    margin-left: 30px;
+}
+
+#UI .right-icon
+{
+    float: right;
+    margin-right: 30px;
+}
+
+#UI .middle
+{
+    height: 150px;
+    background-image: linear-gradient(to right, rgb(0,105,148), rgb(127,255,212));
+    margin: -70px 30px 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+#UI .middle h1
+{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 35px;
+    font-weight: normal;
+}
+
+#UI .middle h1 span
+{
+    font-size: 20px;
+    margin-left: 5px;
+    bottom: 18px;
+    position: relative;
+}
+
+#UI .stock-option-btn
+{
+    color: black;
+    margin: 5px 30px;
+    height: 30px;
+    width: 290px;
+    background-color: linear-gradient(to right,  rgb(5, 31, 22), rgb(0,105,148));
+    border: none;
+    cursor: pointer;
+}
+
+#UI .Stock-Details
+{
+    background: #fff;
+    color:#555;
+    margin: 10px 30px;
+    padding: 10px;
+}
+
+#UI .Stock-Details p
+{
+    font-size: 14px;
+}
+
+#UI .Stock-Details label
+{
+    font-size: 10px;
+    line-height: 20px;
+}
+
+#UI .Stock-Info
+{
+    margin-top: 10px;
+}
+
+#UI .Desired-Price
+{
+    margin-top: 10px;
+    display: inline-block;
+}
+
+#UI .Quantity-To-Purchase
+{
+    margin-top: 10px;
+    display: inline-block;
+    /*float: right;*/
+}
+
+#UI .Stock-Details input
+{
+    border: 1px solid #ccc;
+    height: 22px;
+    padding: 5px;
+    font-size: 10px;
+}
+
+#UI .Stock-Details input::placeholder
+{
+    color: #ccc;
+}

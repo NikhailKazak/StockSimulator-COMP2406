@@ -1,0 +1,135 @@
+By: Nikhail Kazak and Tal Aizikov
+Date Started: 9/19/2020
+Project: Stock Broker
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+Log date: Sept 19, 2020 - 9/19/2020
+Log entry #1 by: Nikhail Kazak
+
+Images/backgrounds and file/folder names are yet to be finalized and hence are subject to change
+
+
+What was done?:
+
+StockBrokerGUI.html Is the html doc which creates the first/main page which feature a login button and other features
+
+StockBrockerGUIPart1.css Is the css file for the main page/StockBrokerGUI.html file
+Every other file will follow once the main page is done
+
+End of Log entry #1
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+Log entry #1.5 by: Tal Aizikov
+What was done?:
+HTML and CSS for main page has been finalized.
+
+We made the main page a scroll page with things like about us and contact to make it look more realistic. <- This might be able to help push us a some points if who even is marking is on the edge of to marks (ex if they are debating if we should get 9 or 10 out of 10 the nice css and extra detail will hopefully push us to a 10). A menu bar was also added to make it easy to navigate between the pages. The menu bar will be added to all pages so you can return to menu if neccesary and go to all other pages. Still a little unsure what we will do for stocks part but we will need to figure out how to run the server before we can even get started on that. On the main page there is also a sign in. Which at the moment does not lead anywhere, but we will make a seperate sign up page. The sign up will be basic and easy to use. 
+
+End of Log entry #1.5
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+Log date: Sept 29, 2020 - 9/29/2020
+Log entry #2 by: Nikhail Kazak
+
+Requirements for checkin #1:
+The main focus of this check-in will be to evaluate your basic HTML/CSS mock-up pages. At minimum, you should have a static page (i.e., you don't require Javascript files) created for each anticipated page in your completed application. You may end up with more or less in the end but should have a good idea of the required pages/content. The pages should be well organized and contain most of the elements/content that will eventually be required. Again, you will likely change this slightly over time but the main points should be present. The pages do not have to be 'flashy' or extravagantly designed, but they should be organized and structured in a way that makes it clear where different pieces of information can be found. You do not need to provide linking functionality between pages but can include example links if you want.
+
+The above description represents the minimum requirements and would place your grade around the 7/10 or 8/10 range. If you are looking for a 9/10 or 10/10 on your first check-in, you should consider including at least one of the following:
+1) Some basic Javascript that adds some dynamic behaviour to a few of your pages. This can be as simple as having a few elements on your pages respond to a user's actions or update the state of an object stored in your client Javascript.
+2) Provide a rough outline of what sorts of objects you plan to have in your system (e.g., users, games, movies, stocks, etc.). Describe the overall structure of the object, types of data that will be stored, etc. You could also provide some example objects in a JS file.
+3) Put more effort into your design to create visually appealing pages.
+
+Comment:
+Prof McKenney has said that in the readme, we are to incorporate:
+1) A list of each included HTML/CSS/JS file and a short description of what each file contains.
+2) What project you are working on.
+3) The name of both partners, if applicable.
+4) Install instructions, if applicable.
+5) A brief description of any additional functionality the TA should consider (e.g., dynamic behaviour you added with Javascript).
+
+
+Changes made:
+1) centred the about us tab(on the StockBrokerGUI.html file) for the desktop view
+2) centred the contact us tab(on the StockBrokerGUI.html file) for the desktop view
+3) added a login/register page
+4) started a bit on the js database
+
+
+End of Log entry #2
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+Log entry #3 by: Tal Aizikov
+What was done?:
+Stocks page has been added but does no have anything in it so far.
+Menu bar shows on login page and stocks apge as well now.
+Signup button has also been added
+
+One of the problems on the main page was that we only had a login button. As you would scroll down you would not be able to see the login in button. So the login button was switched with a signup button and a sign in button was added on the menu bar. That was you can login from any location. You can only press the login button and go to the sign up page. <- makes it easier to navigate through the pages
+End of Log entry #3
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+Log entry #4 by: Tal Aizikov oct 6th
+What was done?: 
+Stocks page had things added. there is a buy/sell button, select when expire, there is also how many stocks would you like to buy box and what price would you like to buy for. Some JS functionality was added to make the 2 button windows pop down when you press on them. This page does not look as good as the other once but can be refind later. 
+End of Log entry #4
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+Log date: Oct 7, 2020
+Log entry #5 by: Nikhail Kazak
+
+Changes made:
+i)Made a basic user home page (i.e once the user is logged in)
+    -> Contains a (non-functioning) dropdown side bar menu which would allow the user to access every page of the site
+    -> To be completed with js functionality
+End of Log entry #5
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+Log date: Oct 22, 2020
+Log entry #6 by: Nikhail Kazak
+
+a)Forgot to write log entry previously, but this is what I did last time (Oct 16, 2020)
+i)Made a functioning login/register form
+    ->currently we aren't connected to a database so everything is locally stored on RAM
+
+b)Todays log entry:
+i)Added a it of business logic (i.e creating the user object)
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+Log date: Oct 30, 2020
+Log entry #7 by: Nikhail Kazak
+
+a)Todays log entry:
+i) Made a general topNav.css file so that a general file can be referenced when needing the top task bar style doc
+ii) Renamed userProfile.ejs and userProfile.css respectively to userHome.ejs and loggedInUser.css
+    -> Reasoning: To correctly reflect what these represent
+iii) Finished off the UserHome page (shows the user their email, name and a generic pfp)
+iv) Finished off the 'myPortfolio' page, the 'myOrders' page, the 'myWatchlist' page, the 'stockResearch' page, the 'trade' page, etc
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+Log date: Nov 11, 2020
+Log entry #9 by: Tal Aizikov
+
+a)Todays log entry:
+i) Implemented business logic into server
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+Log date: Nov 12, 2020
+Log entry #9 by: Nikhail Kazak
+
+a)Todays log entry:
+i) Made the UI and added functionality to the add/remove to/from the watchlist, event-sub, purchase & sell stock features
+ii) Made and added functionality to the add money to user capability
+iii) update everything visually after a change occurs
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------

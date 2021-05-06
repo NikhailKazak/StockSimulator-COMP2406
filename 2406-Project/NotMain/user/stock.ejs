@@ -1,0 +1,169 @@
+<!--By: Nikhail Kazak and Tal Aizikov-->
+<!--Start Date: 9/29/2020-->
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>Stock Buy</title>
+        <link rel ="stylesheet" href="../topNav.css">
+        <link rel ="stylesheet" href="./buttons.css">
+        <link rel="stylesheet" href="userMyWatchlist.css">
+        <style>
+            .buysell{
+                margin-left: 60%;
+            }
+        </style>
+       
+    </head>
+    <body>
+        <!--Header Section: has the menu to navigate through the page-->
+        <section id="menu">
+            <div class="menu container">
+                <div class="nav-bar"> 
+                    <div class="company"> <!--Company class will help style text like a nice title-->
+                        <a href="#myWatchlist"><h1>Stock-Aholics</h1></a> <!-- The span colors one letter different--> 
+                    </div>
+                    <div class="nav-list">
+                        <div class="press"> <!--botton to press when on phone will open menu-->
+                            <div class="bar"> <!--line that makes button look better-->
+                            </div>
+                        </div>
+                        <ul>
+                            <!--all the places to navigate to-->
+                            <li><a href = "../userHome">My Profile</a></li> 
+                            <li><a href = "./userMyStocks">My Stocks</a></li>
+                            <!--<li><a href = "..#aboutUs">About Us</a></li>
+                            <li><a href = "..#contact">Contact</a></li>-->
+                            <li><form action="/logout?_logout=DELETE" method ="POST">
+                                <button type="logout"><a>sign Out</a></button>
+                            </form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="profileMenu">
+            <div class="options">Hi <%= name %></div>
+            <ul>
+                <li><a href="../userHome">My Profile</a></li>
+                <li><a href="./userMyStocks">My Portfolio</a></li>
+                <li><a href="./userMyOrder">My Orders</a></li>
+                <li><a href="./userMyWatchlist">My Watchlist</a></li>
+                <li><a href="./userStockResearch">Stock Research</li>
+                <li><a href="./userMyHistory">View Account History</a></li>
+                <li><a href="./userMySubs">View Event Subscription</a></li>
+            </ul>
+        </nav>
+        
+        <Section id = "buysell">
+            <div class="buysell container">
+                <h2>Select an option please</h2>
+                
+                <div class="select-box">
+                    <div class="options-container">
+                        
+                        <div class="option">
+                            <input type="radio" class="radio" id="buy" name="category">
+                            <label for="buy">buy</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" class="radio" id="sell" name="category">
+                            <label for="sell">sell</label>
+                        </div>
+                    </div>
+                    <div class="selected">
+                        Select Buy/Sell
+                    </div>
+                </div>
+                <div class="select-box">
+                    <div class="options-container options-container2">
+                        
+                        <div class="option2">
+                            <input type="radio" class="radio" id="buy" name="category">
+                            <label for="expire">Expire Today</label>
+                        </div>
+                        <div class="option2">
+                            <input type="radio" class="radio" id="sell" name="category">
+                            <label for="remain">Remain</label>
+                        </div>
+                    </div>
+                    <div class="selected selected2">
+                        Select When Expire
+                    </div>
+                </div>
+            
+            <div class="textbox">
+                <p class = "text-box">
+                    <h2>How many stocks would you like?<br></h2>
+                    <input type = "text"
+                        id = "stockAmount"/>
+                </p>
+                <p class = "text-box">
+                    <h2>For what price would you like to buy?<br></h2>
+                    <input type = "text"
+                        id = "stockAmount"/>
+                </p>
+                
+            </div>
+            
+            </div>
+        </Section>
+        <div>
+            <button type="button" class="button">Buy Now!</button>
+        </div>
+
+
+
+        <script>
+            const press = document.querySelector('.menu .nav-bar .nav-list .press'); //tells js where to get 
+            const mobileMenu = document.querySelector('.menu .nav-bar .nav-list ul');
+            const menuContent = document.querySelectorAll('.menu .nav-bar .nav-list ul li a'); //here multiple things so use All
+
+            press.addEventListener('click', () => {//when item is clicked
+                mobileMenu.classList.toggle('active');//adds class active
+            });
+
+            menuContent.forEach((item)=> {//because multiple line use forEach
+                item.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                });
+            });
+        </script>
+        
+        <script>
+            const selected = document.querySelector(".selected");
+            const optionsContainer = document.querySelector(".options-container");
+
+            const list = document.querySelectorAll(".option");
+
+            selected.addEventListener("click", () => {
+                optionsContainer.classList.toggle("active");
+            })
+
+            list.forEach( o => {
+                o.addEventListener("click", () =>{
+                    selected.innerHTML = o.querySelector("label").innerHTML;
+                    optionsContainer.classList.remove("active");
+                })
+
+            })
+
+            const selected2 = document.querySelector(".selected2");
+            const optionsContainer2 = document.querySelector(".options-container2");
+
+            const list2 = document.querySelectorAll(".option2");
+
+            selected2.addEventListener("click", () => {
+                optionsContainer2.classList.toggle("active");
+            })
+
+            list2.forEach( o => {
+                o.addEventListener("click", () =>{
+                    selected2.innerHTML = o.querySelector("label").innerHTML;
+                    optionsContainer2.classList.remove("active");
+                })
+
+            })
+
+        </script>
+    </body>
+</html>

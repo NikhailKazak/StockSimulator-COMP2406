@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang ="eng">
+    <head>
+        <meta charset ="utf-8">
+        <title>Expandable Sidebar Menu</title>
+        <link rel="stylesheet" href="userMySubs.css">
+        <link rel ="stylesheet" href="../topNav.css">
+    </head>
+    <body>
+        <!--Header Section: has the menu to navigate through the page-->
+        <section id="menu">
+            <div class="menu container">
+                <div class="nav-bar"> 
+                    <div class="company"> <!--Company class will help style text like a nice title-->
+                        <a href="#mySubs"><h1>Stock-Aholics</h1></a> <!-- The span colors one letter different--> 
+                    </div>
+                    <div class="nav-list">
+                        <div class="press"> <!--botton to press when on phone will open menu-->
+                            <div class="bar"> <!--line that makes button look better-->
+                            </div>
+                        </div>
+                        <ul>
+                            <!--all the places to navigate to-->
+                            <li><a href = "../userHome">My Profile</a></li> 
+                            <li><a href = "./userMyStocks">My Stocks</a></li>
+                            <!--<li><a href = "..#aboutUs">About Us</a></li>
+                            <li><a href = "..#contact">Contact</a></li>-->
+                            <li><form action="/logout?_logout=DELETE" method ="POST">
+                                <button type="logout"><a>sign Out</a></button>
+                            </form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="profileMenu">
+            <div class="options">Hi <%= name %></div>
+            <ul>
+                <li><a href="../userHome">My Profile</a></li>
+                <li><a href="./userMyStocks">My Portfolio</a></li>
+                <li><a href="./userMyOrder">My Orders</a></li>
+                <li><a href="./userMyWatchlist">My Watchlist</a></li>
+                <li><a href="./userMyResearch">Stock Research</li>
+                <li><a href="./userMyTrades">Trade</a></li>
+                <li><a href="./userMyHistory">View Account History</a></li>
+                <li><a href="./userMySubs">View Event Subscription</a></li>
+                <li><a href="./stockHistory">Stock history</a></li>
+                <li><a href="./userMyMoney">Edit Money in Account</a></li>
+            </ul>
+        </nav>
+        
+
+        <!--My Profile Section-->
+        <section id="mySubs">
+            <div class="mySubs container">
+                <div class="mySubs-top">
+                    !--<h1 class="section-title"><span> Event Subscriptions</span></h1>
+                </div>
+                <div class="mySubs-Info">
+                    <!--splits area into section each having its own icon and area-->
+                    <div class="icon">
+                        <h2>Event Subscritpions:</h2>
+                        <div class="tables">
+                            <table class="stocks-table">
+                                <thead>
+                                    <tr>
+                                        <th>Code</th>
+                                        <th>Company</th>
+                                        <th>Current Price</th>
+                                        <th>Low Price</th>
+                                        <th>High Price</th>
+                                        <th>Wanted Price</th>
+                                        <th>Order Type</th>
+                                    </tr>
+                                </thead>
+                                <% for(var i=0; i<eventSubs.length; i++) {%>
+                                    <tbody id = "parent">
+                                        <tr id="0" data-href="./userMyTrades" >
+                                            <th><%-eventSubs[i].symbol%></th>
+                                            <th><%-eventSubs[i].name%></th>
+                                            <th><%-eventSubs[i].curPrice%></th>
+                                            <th><%-eventSubs[i].low%></th>
+                                            <th><%-eventSubs[i].high%></th>
+                                            <th><%-eventSubs[i].wantedPrice%></th>
+                                            <th><%-eventSubs[i].type%></th>
+                                        </tr>
+                                    </tbody>
+                                        
+                                <%}%>
+                          </table>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </section>
+        <script>
+            const press = document.querySelector('.menu .nav-bar .nav-list .press'); //tells js where to get 
+            const mobileMenu = document.querySelector('.menu .nav-bar .nav-list ul');
+            const menuContent = document.querySelectorAll('.menu .nav-bar .nav-list ul li a'); //here multiple things so use All
+            
+            press.addEventListener('click', () => {//when item is clicked
+                mobileMenu.classList.toggle('active');//adds class active
+            });
+            
+            menuContent.forEach((item)=> {//because multiple line use forEach
+                item.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                });
+            });
+        </script>
+    </body>
+</html>
+

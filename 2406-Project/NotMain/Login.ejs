@@ -1,0 +1,91 @@
+<!--By: Nikhail Kazak and Tal Aizikov-->
+<!--Start Date: 9/29/2020-->
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>Login</title>
+        <link rel ="stylesheet" href="loginStyle.css">  <!--Connects login html code to CSS stylesheet-->
+    </head>
+    <body>
+        <!--Header Section: has the menu to navigate through the page-->
+        <section id="menu">
+                <div class="menu container">
+                    <div class="nav-bar"> 
+                        <div class="company"> <!--Company class will help style text like a nice title-->
+                            <a href="../#intro"><h1>Stock-Aholics</h1></a> <!-- The span colors one letter different--> 
+                        </div>
+                        <div class="nav-list">
+                            <div class="press"> <!--botton to press when on phone will open menu-->
+                                <div class="bar"> <!--line that makes button look better-->
+                                </div>
+                            </div>
+                            <ul>
+                                <!--all the places to navigate to-->
+                                <li><a href = "../#intro">Home</a></li> 
+                                <li><a href = "./allStocks">Stocks</a></li>
+                                <li><a href = "..#aboutUs">About Us</a></li>
+                                <li><a href = "..#contact">Contact</a></li>
+                                <li><a href = "./Login">Sign-In</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <div class = "loginBackground">
+            <div class="loginSignup-box"><!--Creates the signup/signin box-->
+                <div class="companyLogo">
+                    <img src ="./imges/Stock-AholicsLogo.jpg">
+                </div>
+                <div class="buttonOutline"> <!--Creates a slider button-->
+                    <div id="loginButton1"></div>
+                    <button type="button" class="toggle-button" onclick="signIn()">Log In</button><!--Creates a log in side to the slider-->
+                    <button type="button" class="toggle-button" onclick="signUp()">Register</button><!--Creates a register button-->
+                </div>
+                <div class="networkingLogos">
+                    <img src ="./imges/instagramLogo.png">
+                    <img src ="./imges/twitterLogo.png">
+                    <img src ="./imges/facebookLogo.png">
+                </div>
+                <% if (messages.error) { %>
+                    <%= messages.error %>
+                <% } %>                 
+                 <form action="/register" method="POST" id="signUp" class ="acceptInput"><!--Sign up specific header-->
+                    <input type="text" id="name" name="name" class="inputField" placeholder="Desired Username" required><!--what you want your username to be-->
+                    <input type="email" id="email" name="email" class="inputField" placeholder="Email Address" required><!--input the email associated with your account-->
+                    <input type="text" id="password" name="password" class="inputField" placeholder="Password" required><!--input your desired password-->    
+                    <input type="checkbox" class="check-box" required><span>I agree to the terms and conditions</span><!--checkbox to ensure client agrees to terms and condition-->
+                    <button type="submit" class="submitButton">Register</button><!--button to register your account-->
+                </form>
+                <form action="/login" method="POST" id="signIn" class ="acceptInput"><!--Sign in specific header-->
+                    <input type="text" id="email" name="email" class="inputField" placeholder="Email" required><!--input username-->
+                    <input type="text" id="password" name="password" class="inputField" placeholder="Password" required><!--input password-->    
+                    <input type="checkbox" class="check-box"><span>Remember Password</span><!--remember password for automatic signin-->
+                    <button type="submit" class="submitButton">Log in</button><!--login button-->
+                </form>
+            </div>
+        </div>
+        
+        <script>
+            var logIn = document.getElementById("signIn");
+            var enroll= document.getElementById("signUp");
+            var slider= document.getElementById("loginButton1");
+
+            function signUp()//moves/adjusts the login/register options
+            {
+                logIn.style.left = "-400px";
+                enroll.style.left = "175px";
+                slider.style.left = "110px";
+            }
+            function signIn()//moves/adjusts the login/register options
+            {
+                logIn.style.left = "165px";
+                enroll.style.left = "600px";
+                slider.style.left = "0px";
+            }
+
+        </script>
+        <script src="../menu.js"></script>
+        <script src="button.js"></script>
+    </body>
+</html>

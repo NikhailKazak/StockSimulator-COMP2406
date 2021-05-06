@@ -1,0 +1,2 @@
+[{"name":"Jhon", "password": "a", "email": "test123@test.com" ,"money": 0, "stocks":[], "stocksWatched":[], "eventSubs": []},
+{"name":"Santa", "password": "c", "email": "test321@test.com" ,"money": 0, "stocks":[], "stocksWatched":[], "eventSubs": []}]

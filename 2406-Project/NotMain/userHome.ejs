@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang ="eng">
+    <head>
+        <meta charset ="utf-8">
+        <title>Expandable Sidebar Menu</title>
+        <link rel="stylesheet" href="loggedInUser.css">
+        <link rel ="stylesheet" href="topNav.css">
+    </head>
+    <body>
+        <!--Header Section: has the menu to navigate through the page-->
+        <section id="menu">
+            <div class="menu container">
+                <div class="nav-bar"> 
+                    <div class="company"> <!--Company class will help style text like a nice title-->
+                        <a href="#myProfile"><h1>Stock-Aholics</h1></a> <!-- The span colors one letter different--> 
+                    </div>
+                    <div class="nav-list">
+                        <div class="press"> <!--botton to press when on phone will open menu-->
+                            <div class="bar"> <!--line that makes button look better-->
+                            </div>
+                        </div>
+                        <ul>
+                            <!--all the places to navigate to-->
+                            <li><a href = "#myProfile">My Profile</a></li> 
+                            <li><a href = "./user/userMyStocks">My Stocks</a></li>
+                            <!--<li><a href = "..#aboutUs">About Us</a></li>
+                            <li><a href = "..#contact">Contact</a></li>-->
+                            <li><form action="/logout?_logout=DELETE" method ="POST">
+                                <button type="logout"><a>sign Out</a></button>
+                            </form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="profileMenu">
+            <div class="options">Hi <%= name %></div>
+            <ul>
+                <li><a href="#myProfile">My Profile</a></li>
+                <li><a href="./user/userMyStocks">My Portfolio</a></li>
+                <li><a href="./user/userMyOrder">My Orders</a></li>
+                <li><a href="./user/userMyWatchlist">My Watchlist</a></li>
+                <li><a href="./user/userMyResearch">Stock Research</li>
+                <li><a href="./user/userMyTrades">Trade</a></li>
+                <li><a href="./user/userMyHistory">View Account History</a></li>
+                <li><a href="./user/userMySubs">View Event Subscription</a></li>
+                <li><a href="./user/stockHistory">Stock history</a></li>
+                <li><a href="./user/userMyMoney">Edit Money in Account</a></li>
+            </ul>
+        </nav>
+        
+
+        <!--My Profile Section-->
+        <section id="myProfile">
+            <div class="myProfile container">
+                <div class="myProfile-top">
+                    <h1 class="section-title">My <span> Profile</span></h1>
+                </div>
+                <div class="myProfile-PicInfo">
+                    <!--splits area into section each having its own icon and area-->
+                    <div class="icon">
+                        <img src ="./imges/default-avatar.png">
+                        <h2>Info:</h2>
+                        <p>Name: <%= name %></p>
+                        <p>Email: <%= email %></p>
+                        <p>Money: $<%= money %></p>
+                        <p>Time: <%= time %></p>
+                    </div>  
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const press = document.querySelector('.menu .nav-bar .nav-list .press'); //tells js where to get 
+            const mobileMenu = document.querySelector('.menu .nav-bar .nav-list ul');
+            const menuContent = document.querySelectorAll('.menu .nav-bar .nav-list ul li a'); //here multiple things so use All
+            
+            press.addEventListener('click', () => {//when item is clicked
+                mobileMenu.classList.toggle('active');//adds class active
+            });
+            
+            menuContent.forEach((item)=> {//because multiple line use forEach
+                item.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                });
+            });
+        </script>
+
+    </body>
+</html>
+

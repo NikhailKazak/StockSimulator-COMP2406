@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#buysell h2 {
+    margin: 15px;
+    min-width: 300px;
+}
+#buysell .buysell {
+    padding:35px;
+    padding-top: 60px;
+    max-width: 500px;
+    max-height: 580px;
+}
+#buysell .select-box{
+    display: flex;
+    width: 130px;
+    flex-direction: column;
+}
+#buysell .select-box .options-container{
+    background: darkgrey;
+    color:whitesmoke;
+    /* max-height:0px; */
+    width: 100%;
+    opacity: 0;
+    transition: all 0.25s;
+    border-radius: 4px;
+    overflow: hidden;
+
+    order: 1;
+}
+
+.selected {
+    background-color: darkgray;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    color: whitesmoke;
+    position: relative;
+    order: 0;
+}
+#buysell {
+    max-width: 450px;
+}
+#buysell .select-box .options-container.active {
+    opacity: 1;
+}
+
+
+#buysell .select-box .option,.selected {
+    padding: 8px 11px;
+    cursor: pointer;
+}
+#buysell .select-box .option2,.selected {
+    padding: 8px 11px;
+    cursor: pointer;
+}
+
+
+#buysell .select-box .option:hover{
+    background-color: grey;
+}
+
+#buysell .select-box .option2:hover{
+    background-color: grey;
+}
+
+
+#buysell .select-box label {
+    cursor: pointer;
+}
+
+#buysell .select-box .option .radio {
+    display: none;
+}
+#buysell .select-box .option2 .radio {
+    display: none;
+}
+
+#buysell .textbox {  
+    width: 80px;
+    padding-left: 10px;
+}
+#buysell .text-box {  
+    min-height: 0px;
+}
+#buysell .textbox h2 {  
+    width: 300px;
+}
+.button {
+    background-color: lightskyblue; 
+    border: none;
+    padding: 13px;
+    text-align: center;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 320px;
+  }
+
+

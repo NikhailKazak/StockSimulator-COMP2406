@@ -1,0 +1,39 @@
+<section id = "UI">
+    <div class="ui">
+        <div class="top">
+            <p><span class="left-icon">&#x2190;</span>Stocks<span class="right-icon">&#xb7;&#xb7;&#xb7;</span></p>
+        </div>
+
+        <div class="middle">
+            <h1>Stock-Aholics Research<span> TM  </span></h1>
+            <p>Buying? Watching? Event-Subbing? We got you covered</p>
+        </div>
+
+        <div class="bottom">
+            <!--Remove buttons accordingly i.e in the stock buying section only enable the purchase stock button-->
+            <button type="button" class="stock-option-btn">Add To Watchlist</button>
+            <button type="button" class="stock-option-btn">Add To Event-Subscription</button>
+            <button type="button" class="stock-option-btn">Purchase Stock</button>
+
+            <div class="Stock-Details"> <!--For adding to watchlist/event subs/purchase-->
+                <div class="Stock-Info"> <!--For adding to watchlist/event subs/purchase-->
+                    <p>Enter the Stock info</p>
+                    <label>Name/Symbol</label><br>
+                    <input type="text" class="Name-Symbol-Field" placeholder="Stock/Stk">
+                </div>
+
+                <div class="Desired-Price"> <!--Condition which has to be met if the above is for event subs-->
+                    <p>Please enter the desired price for this stock</p>
+                    <label>Price</label><br>
+                    <input type="number" class="Desired-Price-Field" placeholder="$$$$$$$$$$$$">
+                </div>
+
+                <div class="Quantity-To-Purchase"> <!--For purchasing stocks-->
+                    <p>Please enter the quantity of stock you wish to purchase</p>
+                    <label>Quantity</label><br>
+                    <input type="number" class="Stocks-Buy-Field" placeholder="############">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
